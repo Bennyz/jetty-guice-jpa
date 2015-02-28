@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="FormApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Test</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="stylesheets/signup.css">
+</head>
+<body>
+  <div class="container" ng-controller="FormController">
+    <div ng-submit="submit()">
+      <form class="form-signin" name="form">
+        <h2 class="form-signin-heading">Please register</h2>
+        <input class="form-control" type="text" placeholder="name" ng-model="user.name" name="uName" required="" />
+        <span id="uName-error" ng-show="(form.submitted || form.uName.$touched) && form.uName.$error.required">Please enter your name.</span>
+        <br/>
+        <input class="form-control" type="email" placeholder="email" ng-model="user.email" name="email" required="" />
+        <span id="uName-error" ng-show="(form.submitted || form.email.$touched) && form.email.$error.required">Please enter your email.</span>
+        <br/>
+        <input class="form-control" type="password" placeholder="password" ng-model="user.password" name="uPassowrd" required="" />
+        <span id="uName-error" ng-show="(form.submitted || form.uPassowrd.$touched) && form.uPassowrd.$error.required">Please enter your password.</span>
+        <br/>
+        <input class="form-control" type="text" placeholder="age" ng-model="user.age" name="age" value="0" />
+        <br/>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="send"/>
+      </form>
+    </div>
+    <span class="result"><h3>{{ result }}</h3></span>
+  </div>
+  <script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+  <script src="app.js"></script>
+  <script src="controllers/FormController.js"></script>
+</body>
+</html>
