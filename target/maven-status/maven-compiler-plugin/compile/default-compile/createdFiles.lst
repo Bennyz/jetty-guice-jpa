@@ -1,6 +1,0 @@
-io/benny/jetty/guice/servlets/RegisterServlet.class
-io/benny/jetty/guice/listeners/JpaGuiceServletContextListener$1.class
-io/benny/jetty/guice/services/PersonService.class
-io/benny/jetty/guice/entities/Person.class
-io/benny/jetty/guice/services/PersonServiceImpl.class
-io/benny/jetty/guice/listeners/JpaGuiceServletContextListener.class
