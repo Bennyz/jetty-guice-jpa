@@ -14,41 +14,34 @@ public class Person {
 	@GeneratedValue
 	private long id;
 	
-	private String name;
+	private final String name;
 	
-	private String lastName;
+	private final String lastName;
 	
 	private int age;
 	
 	private String email;
 	
-	private char[] password;
-	
-	public Person() {
+	private final char[] password;
+
+	private Person(Builder builder) {
+		this.name = builder.name;
+		this.lastName = builder.lastName;
+		this.password = builder.password;
+		this.age = builder.age;
+		this.email = builder.email;
 	}
 
 	public long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public String getLastName() {
 		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
 	}
 
 	public int getAge() {
@@ -63,15 +56,36 @@ public class Person {
 		return email;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
 
 	public char[] getPassword() {
 		return password;
 	}
 
-	public void setPassword(char[] password) {
-		this.password = password;
+	public static class Builder {
+		private final String lastName;
+		private final String name;
+		private final char[] password;
+		private int age;
+		private String email;
+		
+		public Builder(String name, String lastName, char[] password) {
+			this.name = name;
+			this.lastName = lastName;
+			this.password = password;
+		}
+		
+		public Builder age(int age) {
+			this.age = age;
+			return this;
+		}
+		
+		public Builder email(String email) {
+			this.email = email;
+			return this;
+		}
+		
+		public Person build() {
+			return new Person(this);
+		}
 	}
 }

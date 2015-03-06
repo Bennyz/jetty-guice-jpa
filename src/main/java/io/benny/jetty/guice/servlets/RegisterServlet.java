@@ -37,12 +37,10 @@ public class RegisterServlet extends HttpServlet {
 		int age = Integer.valueOf(req.getParameter("age"));
 		
 		
-		Person p = new Person();
-		p.setAge(age);
-		p.setName(name);
-		p.setEmail(email);
-		p.setPassword(password.toCharArray());
-		
+		Person p = new Person.Builder(name, name + "last", password.toCharArray())
+											.age(age)
+											.email(email)
+											.build();
 		logger.info("saving person");
 
 		personService.savePerson(p);
