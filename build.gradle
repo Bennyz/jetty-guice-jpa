@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'io.benny.jetty.guice'
+version = '1.0-SNAPSHOT'
+
+description = """"""
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+dependencies {
+    compile group: 'org.cometd.java', name: 'bayeux-api', version:'3.0.4'
+    compile group: 'org.cometd.javascript', name: 'cometd-javascript-jquery', version:'3.0.4'
+    compile group: 'org.cometd.java', name: 'cometd-java-server', version:'3.0.4'
+    compile group: 'org.cometd.java', name: 'cometd-java-websocket-javax-server', version:'3.0.4'
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlets', version:'9.2.9.v20150224'
+    compile group: 'org.slf4j', name: 'slf4j-simple', version:'1.7.10'
+    compile group: 'com.google.inject', name: 'guice', version:'3.0'
+    compile group: 'com.google.inject.extensions', name: 'guice-servlet', version:'3.0'
+    compile group: 'com.google.inject.extensions', name: 'guice-persist', version:'3.0'
+    compile group: 'org.hibernate', name: 'hibernate-core', version:'4.3.8.Final'
+    compile group: 'org.hibernate', name: 'hibernate-entitymanager', version:'4.3.8.Final'
+    compile group: 'org.postgresql', name: 'postgresql', version:'9.4-1200-jdbc41'
+    compile group: 'javax.servlet', name: 'javax.servlet-api', version:'3.1.0'
+}

@@ -1,4 +1,12 @@
 formApp.controller('FormController', function FormController($scope, $http) {
+	$scope.result = '';
+	
+	$scope.sendRequest = function() {
+		$http.post('/blah').success(function(data) {
+			$scope.result = 'blah'
+		});
+	};
+
 	$scope.submit = function() {
 		var params = {
 				'name' : $scope.user.name,
