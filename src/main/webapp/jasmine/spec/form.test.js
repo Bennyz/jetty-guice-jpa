@@ -26,11 +26,20 @@ describe('form tests', function() {
 
 			formElement = angular.element(templateHtml);
 			var element = $compile(formElement)($rootScope);
-			$rootScope.$apply();
+			$rootScope.$digest();
 		}));
 		
 		it('should be in the dom', function() {
 			expect(angular.element(templateHtml).find('form').length).toBe(1);
+		});
+		
+		it('should display message when name input is empty', function() {
+			console.log($(templateHtml));
+			var nameInput = formElement.find("[name='uName']");
+			nameInput.trigger('focus');
+			nameInput.trigger('blur');
+			var errorSpan = formElement.find('#uName-error');
+			expect(errorSpan.hasClass('ng-hide')).toBe(false)
 		});
 
 		it('should not display message when name input is empty', function() {
@@ -38,15 +47,18 @@ describe('form tests', function() {
 			nameInput.val('Benny');
 			nameInput.trigger('focus');
 			nameInput.trigger('blur');
+			$rootScope.$digest();
 			var errorSpan = formElement.find('#uName-error');
-			expect(errorSpan.hasClass('ng-hide')).toBe(true);
+			expect(errorSpan.css('display')).toBe('');
 		});
 
-		it('should test http response', function() {
+		// TODO: Remove later - only for proof of concept
+ 		it('should test http response', function() {
 			httpBackend.expectPOST('/blah').respond('201', 'broom')
 			$rootScope.sendRequest();
 			httpBackend.flush();
 			expect($rootScope.result).toBe('blah');
 		});
 	});
+
 });

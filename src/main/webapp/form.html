@@ -18,10 +18,10 @@
         <span id="uName-error" ng-show="(form.submitted || form.uName.$touched) && form.uName.$error.required">Please enter your name.</span>
         <br/>
         <input class="form-control" type="email" placeholder="email" ng-model="user.email" name="email" required="" />
-        <span id="uName-error" ng-show="(form.submitted || form.email.$touched) && form.email.$error.required">Please enter your email.</span>
+        <span id="email-error" ng-show="(form.submitted || form.email.$touched) && form.email.$error.required">Please enter your email.</span>
         <br/>
         <input class="form-control" type="password" placeholder="password" ng-model="user.password" name="uPassowrd" required="" />
-        <span id="uName-error" ng-show="(form.submitted || form.uPassowrd.$touched) && form.uPassowrd.$error.required">Please enter your password.</span>
+        <span id="password-error" ng-show="(form.submitted || form.uPassowrd.$touched) && form.uPassowrd.$error.required">Please enter your password.</span>
         <br/>
         <input class="form-control" type="text" placeholder="age" ng-model="user.age" name="age" value="0" />
         <br/>
