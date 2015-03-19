@@ -1,5 +1,0 @@
-/home/benny/Development/EclipseWorkspace/jetty-guice-jpa/src/main/java/io/benny/jetty/guice/entities/Person.java
-/home/benny/Development/EclipseWorkspace/jetty-guice-jpa/src/main/java/io/benny/jetty/guice/listeners/JpaGuiceServletContextListener.java
-/home/benny/Development/EclipseWorkspace/jetty-guice-jpa/src/main/java/io/benny/jetty/guice/services/PersonService.java
-/home/benny/Development/EclipseWorkspace/jetty-guice-jpa/src/main/java/io/benny/jetty/guice/servlets/RegisterServlet.java
-/home/benny/Development/EclipseWorkspace/jetty-guice-jpa/src/main/java/io/benny/jetty/guice/services/PersonServiceImpl.java
