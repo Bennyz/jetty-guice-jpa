@@ -5,7 +5,6 @@ describe('form tests', function() {
 	beforeEach(module('FormApp'));
 	beforeEach(inject(function($templateCache) {
 		templateHtml = $templateCache.get('form.html');
-		console.log($templateCache.get('../form.html'));
 		if (!templateHtml) {
 			templateHtml = $.ajax('/jetty-guice-jpa/form.html', {
 				async : false
@@ -15,7 +14,7 @@ describe('form tests', function() {
 	}));
 	describe('form validations', function() {
 
-		var $compile, $rootScope, formElement, httpBackend;
+		var $compile, $rootScope, formElement, httpBackend, view;
 		beforeEach(inject(function(_$compile_, _$rootScope_, $injector, $controller, $httpBackend) {
 			$compile = _$compile_;
 			$rootScope = _$rootScope_;
@@ -25,31 +24,27 @@ describe('form tests', function() {
 			$controller('FormController', {$scope: $rootScope});
 
 			formElement = angular.element(templateHtml);
-			var element = $compile(formElement)($rootScope);
+			view = $compile(formElement)($rootScope);
 			$rootScope.$digest();
 		}));
-		
+
 		it('should be in the dom', function() {
 			expect(angular.element(templateHtml).find('form').length).toBe(1);
 		});
-		
+
 		it('should display message when name input is empty', function() {
-			console.log($(templateHtml));
-			var nameInput = formElement.find("[name='uName']");
-			nameInput.trigger('focus');
-			nameInput.trigger('blur');
-			var errorSpan = formElement.find('#uName-error');
+			view.find("[name='uName']").trigger('focus');
+			view.find("[name='uName']").trigger('blur');
+			var errorSpan = view.find('#uName-error');
 			expect(errorSpan.hasClass('ng-hide')).toBe(false)
 		});
 
 		it('should not display message when name input is empty', function() {
-			var nameInput = formElement.find("[name='uName']");
-			nameInput.val('Benny');
-			nameInput.trigger('focus');
-			nameInput.trigger('blur');
-			$rootScope.$digest();
-			var errorSpan = formElement.find('#uName-error');
-			expect(errorSpan.css('display')).toBe('');
+			view.find("[name='uName']").trigger('focus');
+			view.find("[name='uName']").val('Benny');
+			view.find("#password-error").trigger('click');
+			var errorSpan = view.find('#uName-error');
+			expect(errorSpan.hasClass('ng-hide')).toBe(true);
 		});
 
 		// TODO: Remove later - only for proof of concept
