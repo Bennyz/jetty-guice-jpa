@@ -42,7 +42,7 @@ describe('form tests', function() {
 		it('should not display message when name input is empty', function() {
 			view.find("[name='uName']").trigger('focus');
 			view.find("[name='uName']").val('Benny');
-			view.find("#password-error").trigger('click');
+			view.trigger('blur');
 			var errorSpan = view.find('#uName-error');
 			expect(errorSpan.hasClass('ng-hide')).toBe(true);
 		});
