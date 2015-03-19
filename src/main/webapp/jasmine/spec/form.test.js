@@ -35,16 +35,14 @@ describe('form tests', function() {
 		it('should display message when name input is empty', function() {
 			view.find("[name='uName']").trigger('focus');
 			view.find("[name='uName']").trigger('blur');
-			var errorSpan = view.find('#uName-error');
-			expect(errorSpan.hasClass('ng-hide')).toBe(false)
+			expect(view.find('#uName-error').hasClass('ng-hide')).toBe(false)
 		});
 
 		it('should not display message when name input is empty', function() {
 			view.find("[name='uName']").trigger('focus');
 			view.find("[name='uName']").val('Benny');
 			view.trigger('blur');
-			var errorSpan = view.find('#uName-error');
-			expect(errorSpan.hasClass('ng-hide')).toBe(true);
+			expect(view.find('#uName-error').hasClass('ng-hide')).toBe(true);
 		});
 
 		// TODO: Remove later - only for proof of concept
