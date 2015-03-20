@@ -1,6 +1,7 @@
-package io.benny.jetty.guice.services;
+package io.benny.jetty.guice.services.impl;
 
 import io.benny.jetty.guice.entities.Person;
+import io.benny.jetty.guice.services.PersonService;
 
 import javax.persistence.EntityManager;
 
