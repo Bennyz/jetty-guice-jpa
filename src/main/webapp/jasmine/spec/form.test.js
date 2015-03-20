@@ -44,14 +44,6 @@ describe('form tests', function() {
 			view.trigger('blur');
 			expect(view.find('#uName-error').hasClass('ng-hide')).toBe(true);
 		});
-
-		// TODO: Remove later - only for proof of concept
- 		it('should test http response', function() {
-			httpBackend.expectPOST('/blah').respond('201', 'broom')
-			$rootScope.sendRequest();
-			httpBackend.flush();
-			expect($rootScope.result).toBe('blah');
-		});
 	});
 
 });
