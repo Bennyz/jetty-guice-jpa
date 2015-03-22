@@ -38,7 +38,7 @@ describe('form tests', function() {
 			expect(view.find('#uName-error').hasClass('ng-hide')).toBe(false)
 		});
 
-		it('should not display message when name input is empty', function() {
+		it('should not display message when name input is not empty', function() {
 			view.find("[name='uName']").trigger('focus');
 			view.find("[name='uName']").val('Benny');
 			view.trigger('blur');
